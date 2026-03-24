@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete AP Psychology study notes — all 5 units, 35 topics, key terms, experiments, and disorders. Effective Fall 2025.">
+<meta name="theme-color" content="#0f0f11">
+<title>AP Psychology — Complete Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0f11;
+  --surface: #17171b;
+  --surface2: #1e1e24;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #e8e6e0;
+  --muted: #8a8880;
+  --hint: #555350;
+  --accent: #c8b89a;
+  --accent2: #8fa8c8;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15,15,17,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.site-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.site-title span {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.header-meta {
+  font-size: 12px;
+  color: var(--hint);
+  letter-spacing: 0.04em;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 5rem 2rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(200,184,154,0.3);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero p {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--text);
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--hint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── NAV ── */
+.unit-nav {
+  position: sticky;
+  top: 56px;
+  z-index: 90;
+  background: rgba(15,15,17,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.unit-nav::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--hint);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.nav-btn:hover { color: var(--muted); }
+.nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+
+/* ── MAIN ── */
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 6rem;
+}
+
+/* ── UNIT PANEL ── */
+.unit-panel { display: none; }
+.unit-panel.active { display: block; }
+
+.unit-header-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.unit-badge {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.u1 .unit-badge { background: rgba(55,138,221,0.15); color: #7ab5e0; border: 1px solid rgba(55,138,221,0.2); }
+.u2 .unit-badge { background: rgba(29,158,117,0.15); color: #5dcaa5; border: 1px solid rgba(29,158,117,0.2); }
+.u3 .unit-badge { background: rgba(186,117,23,0.15); color: #d4914a; border: 1px solid rgba(186,117,23,0.2); }
+.u4 .unit-badge { background: rgba(212,83,126,0.15); color: #e07aaa; border: 1px solid rgba(212,83,126,0.2); }
+.u5 .unit-badge { background: rgba(127,119,221,0.15); color: #a89edf; border: 1px solid rgba(127,119,221,0.2); }
+
+.unit-heading {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--text);
+  flex: 1;
+}
+
+.unit-pct {
+  font-size: 12px;
+  color: var(--hint);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* ── TOPICS GRID ── */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+  margin-bottom: 2.5rem;
+}
+
+.topic-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color 0.2s;
+}
+
+.topic-card:hover { border-color: var(--border2); }
+.topic-num { font-size: 11px; color: var(--hint); margin-bottom: 4px; letter-spacing: 0.04em; }
+.topic-name { font-size: 13px; color: var(--text); font-weight: 500; margin-bottom: 4px; }
+.topic-periods { font-size: 11px; color: var(--hint); }
+
+/* ── SECTION ── */
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── DEFINITION LIST ── */
+.def-list { display: flex; flex-direction: column; gap: 10px; }
+
+.def {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.def:last-child { border-bottom: none; }
+
+.def .term {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.def .meaning { color: var(--muted); }
+
+/* ── KV LIST ── */
+.kv-list { display: flex; flex-direction: column; gap: 8px; }
+
+.kv {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.kv .k { color: var(--text); font-weight: 500; }
+.kv .v { color: var(--muted); }
+
+/* ── EXPERIMENT CARD ── */
+.exp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.exp-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.exp-who { font-size: 12px; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.02em; }
+.exp-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── PILL LIST ── */
+.pill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.pill {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--surface2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+/* ── DISORDER GRID ── */
+.disorder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.disorder-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  transition: border-color 0.2s;
+}
+
+.disorder-card:hover { border-color: var(--border2); }
+.disorder-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.disorder-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ── ERIKSON TABLE ── */
+.stage-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.stage-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--muted); }
+.stage-table td:first-child { color: var(--text); font-weight: 500; width: 55%; }
+.stage-table tr:last-child td { border-bottom: none; }
+
+/* ── FOOTER ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: var(--hint);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .def, .kv { grid-template-columns: 1fr; gap: 2px; }
+  .def .term, .kv .k { font-size: 13px; }
+  .hero h1 { font-size: 2rem; }
+  .site-header { padding: 0 1rem; }
+  .main { padding: 2rem 1rem 5rem; }
+  .unit-nav { padding: 0 1rem; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.unit-panel.active { animation: fadeUp 0.25s ease; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-title">AP <span>Psychology</span></div>
+  <div class="header-meta">EFFECTIVE FALL 2025</div>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">Complete Study Notes</div>
+  <h1>Everything you need<br>for the <em>AP Psych</em> exam</h1>
+  <p>All 5 units, 35 topics, key terms, experiments, and disorders — organized and ready to study.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">5</span><span class="stat-label">Units</span></div>
+    <div class="stat"><span class="stat-num">35</span><span class="stat-label">Topics</span></div>
+    <div class="stat"><span class="stat-num">15–25%</span><span class="stat-label">Each Unit on Exam</span></div>
+    <div class="stat"><span class="stat-num">~90</span><span class="stat-label">Class Periods</span></div>
+  </div>
+</section>
+
+<nav class="unit-nav">
+  <button class="nav-btn active" onclick="show('u1',this)">Unit 1 — Biology</button>
+  <button class="nav-btn" onclick="show('u2',this)">Unit 2 — Cognition</button>
+  <button class="nav-btn" onclick="show('u3',this)">Unit 3 — Development &amp; Learning</button>
+  <button class="nav-btn" onclick="show('u4',this)">Unit 4 — Social &amp; Personality</button>
+  <button class="nav-btn" onclick="show('u5',this)">Unit 5 — Mental &amp; Physical Health</button>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════════ UNIT 1 ══════════════════════════════ -->
+<div class="unit-panel u1 active" id="u1">
+  <div class="unit-header-bar">
+    <span class="unit-badge">Unit 1</span>
+    <h2 class="unit-heading">Biological Bases of Behavior</h2>
+    <span class="unit-pct">15–25% · ~17–23 periods</span>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Topics at a glance</div>
+    <div class="topics-grid">
+      <div class="topic-card"><div class="topic-num">1.1</div><div class="topic-name">Heredity &amp; Environment</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">1.2</div><div class="topic-name">Nervous System Overview</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">1.3</div><div class="topic-name">Neuron &amp; Neural Firing</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">1.4</div><div class="topic-name">The Brain</div><div class="topic-periods">5 periods</div></div>
+      <div class="topic-card"><div class="topic-num">1.5</div><div class="topic-name">Sleep</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">1.6</div><div class="topic-name">Sensation</div><div class="topic-periods">5 periods</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">1.1 — Heredity &amp; Environment</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Nature (heredity)</span><span class="meaning">Genetic/predisposed traits influencing physical, behavioral, and mental characteristics.</span></div>
+      <div class="def"><span class="term">Nurture (environment)</span><span class="meaning">External factors such as family, education, and culture that shape development.</span></div>
+      <div class="def"><span class="term">Evolutionary perspective</span><span class="meaning">Natural selection affects behavior to increase survival and reproductive success. Eugenics is a harmful misapplication of this idea.</span></div>
+      <div class="def"><span class="term">Research methods</span><span class="meaning">Twin studies, family studies, and adoption studies are used to disentangle genetic vs. environmental effects on behavior.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">1.2 — Nervous System</div>
+    <div class="def-list">
+      <div class="def"><span class="term">CNS</span><span class="meaning">Brain + spinal cord; interacts with all processes in the body.</span></div>
+      <div class="def"><span class="term">PNS</span><span class="meaning">Peripheral nervous system; relays messages between CNS and body. Includes autonomic and somatic.</span></div>
+      <div class="def"><span class="term">Autonomic NS</span><span class="meaning">Governs involuntary processes. Subdivided into sympathetic (fight/flight/freeze) and parasympathetic (rest/digest).</span></div>
+      <div class="def"><span class="term">Somatic NS</span><span class="meaning">Governs voluntary muscle movement and control.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">1.3 — Neuron &amp; Neural Firing</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Neurons vs. Glial cells</span><span class="meaning">Neurons transmit information. Glial cells provide structure, insulation, support, and waste transport.</span></div>
+      <div class="def"><span class="term">Reflex arc</span><span class="meaning">Sensory → interneuron → motor neurons in the spinal cord; bypasses the brain for fast responses.</span></div>
+      <div class="def"><span class="term">All-or-none principle</span><span class="meaning">A neuron either fires completely or not at all — once threshold is crossed.</span></div>
+      <div class="def"><span class="term">Action potential steps</span><span class="meaning">Resting potential → threshold reached → depolarization → refractory period → reuptake (neurotransmitters reabsorbed).</span></div>
+      <div class="def"><span class="term">Agonists</span><span class="meaning">Drugs that mimic neurotransmitters and encourage neural firing.</span></div>
+      <div class="def"><span class="term">Antagonists</span><span class="meaning">Drugs that block receptors and discourage neural firing.</span></div>
+      <div class="def"><span class="term">Reuptake inhibitors</span><span class="meaning">Block reabsorption of neurotransmitters back into the presynaptic neuron (e.g., SSRIs block serotonin reuptake).</span></div>
+      <div class="def"><span class="term">Disorders from disruption</span><span class="meaning">Multiple sclerosis (myelin damage slows signals), myasthenia gravis (acetylcholine receptor blockage causing muscle weakness).</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Neurotransmitters — testable list only</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Dopamine</span><span class="v">Reward, movement, motivation. Implicated in schizophrenia (excess) and Parkinson's (deficit).</span></div>
+      <div class="kv"><span class="k">Serotonin</span><span class="v">Mood, sleep, appetite. Low levels linked to depression.</span></div>
+      <div class="kv"><span class="k">Norepinephrine</span><span class="v">Alertness, arousal, fight-or-flight response.</span></div>
+      <div class="kv"><span class="k">Glutamate</span><span class="v">Major excitatory neurotransmitter; central to learning and memory.</span></div>
+      <div class="kv"><span class="k">GABA</span><span class="v">Major inhibitory neurotransmitter; calms neural activity. Targeted by alcohol and anti-anxiety drugs.</span></div>
+      <div class="kv"><span class="k">Endorphins</span><span class="v">Natural pain relief and euphoria; released during exercise.</span></div>
+      <div class="kv"><span class="k">Substance P</span><span class="v">Transmits pain signals; blocked by opioids.</span></div>
+      <div class="kv"><span class="k">Acetylcholine</span><span class="v">Muscle movement and memory. Low levels linked to Alzheimer's disease.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Hormones — testable list only</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Adrenaline (epinephrine)</span><span class="v">Stress and excitement response; increases heart rate and energy.</span></div>
+      <div class="kv"><span class="k">Leptin</span><span class="v">Signals satiety (fullness) to the hypothalamus.</span></div>
+      <div class="kv"><span class="k">Ghrelin</span><span class="v">Signals hunger; stimulates appetite.</span></div>
+      <div class="kv"><span class="k">Melatonin</span><span class="v">Regulates circadian rhythm and sleep-wake cycle.</span></div>
+      <div class="kv"><span class="k">Oxytocin</span><span class="v">Bonding, trust, and social connection; released during physical contact.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Psychoactive drug categories</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Stimulants</span><span class="v">Increase neural activity (caffeine, cocaine). Tolerance and addiction possible.</span></div>
+      <div class="kv"><span class="k">Depressants</span><span class="v">Decrease neural activity (alcohol). Slow CNS function.</span></div>
+      <div class="kv"><span class="k">Hallucinogens</span><span class="v">Distort perception and cognition (marijuana, LSD, psilocybin).</span></div>
+      <div class="kv"><span class="k">Opioids</span><span class="v">Pain relief; act on endorphin receptors (heroin, morphine, oxycodone).</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">1.4 — The Brain</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Brain stem / medulla</span><span class="v">Controls basic life functions: breathing, heart rate, blood pressure.</span></div>
+      <div class="kv"><span class="k">Reticular activating system</span><span class="v">Alertness, voluntary movement, some learning and emotion.</span></div>
+      <div class="kv"><span class="k">Cerebellum</span><span class="v">Coordination, balance, and procedural/motor learning.</span></div>
+      <div class="kv"><span class="k">Thalamus</span><span class="v">Sensory relay station (all senses except smell route through here).</span></div>
+      <div class="kv"><span class="k">Hypothalamus</span><span class="v">Homeostasis (hunger, thirst, temperature, sex drive); regulates pituitary gland.</span></div>
+      <div class="kv"><span class="k">Hippocampus</span><span class="v">Memory formation; converts short-term to long-term memory.</span></div>
+      <div class="kv"><span class="k">Amygdala</span><span class="v">Emotional processing, especially fear and aggression.</span></div>
+      <div class="kv"><span class="k">Occipital lobes</span><span class="v">Visual processing (rear of brain).</span></div>
+      <div class="kv"><span class="k">Temporal lobes</span><span class="v">Auditory and language processing (sides of brain).</span></div>
+      <div class="kv"><span class="k">Parietal lobes</span><span class="v">Somatosensory cortex (touch) and spatial processing (back crown).</span></div>
+      <div class="kv"><span class="k">Frontal lobes</span><span class="v">Language, higher-order thinking, executive function; motor cortex at rear.</span></div>
+      <div class="kv"><span class="k">Broca's area</span><span class="v">Speech production (left hemisphere). Damage → Broca's aphasia (can understand but not produce speech).</span></div>
+      <div class="kv"><span class="k">Wernicke's area</span><span class="v">Speech comprehension (left hemisphere). Damage → Wernicke's aphasia (fluent but meaningless speech).</span></div>
+      <div class="kv"><span class="k">Corpus callosum</span><span class="v">Connects and allows communication between hemispheres.</span></div>
+      <div class="kv"><span class="k">Brain plasticity</span><span class="v">Brain's ability to rewire and compensate for damage by forming new connections.</span></div>
+      <div class="kv"><span class="k">Research tools</span><span class="v">EEG (electrical patterns), fMRI (blood flow/activity), lesioning, case studies.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Key experiment</div>
+    <div class="exp-card">
+      <div class="exp-name">Split-brain research</div>
+      <div class="exp-who">Roger Sperry &amp; Michael Gazzaniga — Nobel Prize 1981</div>
+      <div class="exp-desc">Severing the corpus callosum (used to treat severe epilepsy) revealed hemispheric specialization. Images shown only to the left visual field (processed by right hemisphere) could be picked out but not named — demonstrating left hemisphere language dominance and contralateral brain organization.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">1.5 — Sleep</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Circadian rhythm</span><span class="meaning">~24 hour biological clock. Melatonin regulates it. Jet lag and shift work disrupt it.</span></div>
+      <div class="def"><span class="term">NREM Stages 1–3</span><span class="meaning">Progressively deeper sleep. Hypnagogic sensations occur entering Stage 1. Duration decreases across the night.</span></div>
+      <div class="def"><span class="term">REM sleep</span><span class="meaning">Paradoxical sleep: brain waves similar to waking but body is paralyzed. Dreaming occurs. Frequency increases as night progresses. REM rebound follows deprivation.</span></div>
+      <div class="def"><span class="term">Dream theories</span><span class="meaning">Activation-synthesis: random brain signals, cortex constructs narrative. Consolidation theory: REM sleep consolidates and organizes memories.</span></div>
+      <div class="def"><span class="term">Why we sleep</span><span class="meaning">Memory consolidation and restoration of depleted biological resources.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Sleep disorders — testable only</div>
+    <div class="pill-list">
+      <span class="pill">Insomnia</span><span class="pill">Narcolepsy</span><span class="pill">REM sleep behavior disorder</span><span class="pill">Sleep apnea</span><span class="pill">Somnambulism (sleepwalking)</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">1.6 — Sensation</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Sensation</span><span class="meaning">Detecting environmental stimuli and transducing them into neurochemical signals for the brain.</span></div>
+      <div class="def"><span class="term">Absolute threshold</span><span class="meaning">The minimum stimulus intensity detectable 50% of the time.</span></div>
+      <div class="def"><span class="term">Just-noticeable difference (JND)</span><span class="meaning">The minimum detectable change in stimulus intensity.</span></div>
+      <div class="def"><span class="term">Weber's Law</span><span class="meaning">The change needed to detect a difference is a constant proportion of the original stimulus strength.</span></div>
+      <div class="def"><span class="term">Sensory adaptation</span><span class="meaning">Diminished sensitivity to a constant, unchanging stimulus over time.</span></div>
+      <div class="def"><span class="term">Synesthesia</span><span class="meaning">One sense is experienced through another (e.g., hearing colors).</span></div>
+      <div class="def"><span class="term">Rods</span><span class="meaning">Periphery of retina; detect shapes and movement, not color; active in low light; enable dark adaptation.</span></div>
+      <div class="def"><span class="term">Cones</span><span class="meaning">Fovea of retina; detect color and fine detail; blue/green/red types (trichromatic theory).</span></div>
+      <div class="def"><span class="term">Trichromatic theory</span><span class="meaning">Three cone types (RGB) combine to produce all color perception.</span></div>
+      <div class="def"><span class="term">Opponent-process theory</span><span class="meaning">Ganglion cells work in opponent pairs (R/G, B/Y, Bk/W); explains afterimages and color vision deficiency.</span></div>
+      <div class="def"><span class="term">Blind spot</span><span class="meaning">Where the optic nerve exits the eye; no photoreceptors here; brain fills in the gap.</span></div>
+      <div class="def"><span class="term">Accommodation</span><span class="meaning">Lens changes shape to focus; impairment leads to nearsightedness or farsightedness.</span></div>
+      <div class="def"><span class="term">Pitch theories</span><span class="meaning">Place theory (high frequency), frequency theory (low frequency), volley theory (mid-range).</span></div>
+      <div class="def"><span class="term">Sound localization</span><span class="meaning">Identifying where sounds originate based on timing/intensity differences between ears.</span></div>
+      <div class="def"><span class="term">Hearing loss types</span><span class="meaning">Conduction deafness (middle ear damage); sensorineural deafness (cochlea or auditory nerve).</span></div>
+      <div class="def"><span class="term">Olfaction</span><span class="meaning">Only sense that bypasses the thalamus; goes directly to the limbic system (emotion + memory).</span></div>
+      <div class="def"><span class="term">Gustation</span><span class="meaning">Six basic tastes: sweet, sour, salty, bitter, umami, oleogustus. Supertasters have more taste receptors.</span></div>
+      <div class="def"><span class="term">Gate control theory</span><span class="meaning">Pain signals can be blocked or modulated in the spinal cord (e.g., rubbing an injury helps).</span></div>
+      <div class="def"><span class="term">Phantom limb sensation</span><span class="meaning">Sensation felt in an amputated limb; demonstrates that pain is processed in the brain.</span></div>
+      <div class="def"><span class="term">Vestibular sense</span><span class="meaning">Balance; detected primarily by semicircular canals in the inner ear.</span></div>
+      <div class="def"><span class="term">Kinesthesis</span><span class="meaning">Sense of body position and movement without looking.</span></div>
+      <div class="def"><span class="term">Prosopagnosia</span><span class="meaning">Face blindness; caused by occipital lobe damage.</span></div>
+      <div class="def"><span class="term">Blindsight</span><span class="meaning">Responding to visual stimuli without conscious awareness; caused by visual cortex damage.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ UNIT 2 ══════════════════════════════ -->
+<div class="unit-panel u2" id="u2">
+  <div class="unit-header-bar">
+    <span class="unit-badge">Unit 2</span>
+    <h2 class="unit-heading">Cognition</h2>
+    <span class="unit-pct">15–25% · ~17–23 periods</span>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Topics at a glance</div>
+    <div class="topics-grid">
+      <div class="topic-card"><div class="topic-num">2.1</div><div class="topic-name">Perception</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.2</div><div class="topic-name">Thinking &amp; Decision-Making</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.3</div><div class="topic-name">Introduction to Memory</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.4</div><div class="topic-name">Encoding Memories</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.5</div><div class="topic-name">Storing Memories</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.6</div><div class="topic-name">Retrieving Memories</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.7</div><div class="topic-name">Forgetting &amp; Challenges</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">2.8</div><div class="topic-name">Intelligence &amp; Achievement</div><div class="topic-periods">3 periods</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">2.1 — Perception</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Bottom-up processing</span><span class="meaning">Driven by raw sensory data — perception built from individual features upward.</span></div>
+      <div class="def"><span class="term">Top-down processing</span><span class="meaning">Driven by prior knowledge, expectations, and context — the brain fills in gaps.</span></div>
+      <div class="def"><span class="term">Schemas</span><span class="meaning">Mental frameworks built from experience that filter and shape perception.</span></div>
+      <div class="def"><span class="term">Perceptual set</span><span class="meaning">A predisposition to perceive things in a certain way based on prior expectations.</span></div>
+      <div class="def"><span class="term">Gestalt principles</span><span class="meaning">Closure (fill gaps), figure/ground (object vs. background), proximity (nearness = grouping), similarity.</span></div>
+      <div class="def"><span class="term">Cocktail party effect</span><span class="meaning">Selective attention — you hear your name mentioned even in a noisy environment.</span></div>
+      <div class="def"><span class="term">Change blindness</span><span class="meaning">Failure to notice changes to the environment when attention is elsewhere (inattentional blindness).</span></div>
+      <div class="def"><span class="term">Binocular depth cues</span><span class="meaning">Retinal disparity (slight difference between each eye's image) + convergence (eyes turning inward for close objects).</span></div>
+      <div class="def"><span class="term">Monocular depth cues</span><span class="meaning">Relative clarity, relative size, texture gradient, linear perspective, interposition — work with one eye.</span></div>
+      <div class="def"><span class="term">Perceptual constancies</span><span class="meaning">Objects appear stable despite changing retinal images (size, shape, color constancy).</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">2.2 — Thinking, Problem-Solving &amp; Decision-Making</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Concepts &amp; prototypes</span><span class="meaning">Concepts are mental categories; prototypes are the best/most typical example of a category.</span></div>
+      <div class="def"><span class="term">Assimilation</span><span class="meaning">Fitting new information into an existing schema without changing it.</span></div>
+      <div class="def"><span class="term">Accommodation</span><span class="meaning">Changing an existing schema to incorporate new information that doesn't fit.</span></div>
+      <div class="def"><span class="term">Algorithms</span><span class="meaning">Methodical problem-solving: try all possible solutions. Guaranteed correct but slow.</span></div>
+      <div class="def"><span class="term">Heuristics</span><span class="meaning">Mental shortcuts for quick judgments. Fast but error-prone.</span></div>
+      <div class="def"><span class="term">Representativeness heuristic</span><span class="meaning">Judge probability by how well something matches a stereotype/prototype.</span></div>
+      <div class="def"><span class="term">Availability heuristic</span><span class="meaning">Judge likelihood by how easily an example comes to mind.</span></div>
+      <div class="def"><span class="term">Mental set</span><span class="meaning">Tendency to use solutions that worked before, even when a new approach would work better.</span></div>
+      <div class="def"><span class="term">Priming</span><span class="meaning">Prior exposure to a stimulus influences later perception or decision-making.</span></div>
+      <div class="def"><span class="term">Framing</span><span class="meaning">How a choice is presented influences the decision made (e.g., "90% survival" vs. "10% mortality").</span></div>
+      <div class="def"><span class="term">Gambler's fallacy</span><span class="meaning">Believing past random events affect future random probabilities (they don't).</span></div>
+      <div class="def"><span class="term">Sunk-cost fallacy</span><span class="meaning">Continuing an endeavor because of past investment rather than future value.</span></div>
+      <div class="def"><span class="term">Executive functions</span><span class="meaning">Prefrontal cortex processes: planning, organizing, goal-directed behavior, critical thinking.</span></div>
+      <div class="def"><span class="term">Functional fixedness</span><span class="meaning">Inability to see new uses for familiar objects; blocks creative problem-solving.</span></div>
+      <div class="def"><span class="term">Divergent vs. convergent</span><span class="meaning">Divergent thinking = many novel solutions (creative). Convergent = single best answer.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">2.3–2.5 — Memory: Models, Encoding &amp; Storage</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Explicit memory</span><span class="meaning">Consciously recalled: episodic (personal events) + semantic (facts and general knowledge).</span></div>
+      <div class="def"><span class="term">Implicit memory</span><span class="meaning">Not easily verbalized: procedural memory (skills and habits like riding a bike).</span></div>
+      <div class="def"><span class="term">Prospective memory</span><span class="meaning">Remembering to do something in the future ("remember to call at 5 pm").</span></div>
+      <div class="def"><span class="term">Long-term potentiation</span><span class="meaning">Repeated synaptic firing strengthens neural connections — the biological basis of memory formation.</span></div>
+      <div class="def"><span class="term">Multi-store model</span><span class="meaning">Atkinson-Shiffrin: sensory memory (iconic/echoic) → short-term memory → long-term memory.</span></div>
+      <div class="def"><span class="term">Working memory model</span><span class="meaning">Central executive + phonological loop (verbal) + visuospatial sketchpad (visual) — Baddeley &amp; Hitch.</span></div>
+      <div class="def"><span class="term">Levels of processing</span><span class="meaning">Structural (shallowest) → phonemic → semantic (deepest, most memorable — Craik &amp; Lockhart).</span></div>
+      <div class="def"><span class="term">Chunking</span><span class="meaning">Grouping information into meaningful units to expand working memory capacity.</span></div>
+      <div class="def"><span class="term">Method of loci</span><span class="meaning">Mnemonic device: place information in imagined spatial locations (memory palace).</span></div>
+      <div class="def"><span class="term">Spacing effect</span><span class="meaning">Distributed practice over time beats massed practice (cramming) for long-term retention.</span></div>
+      <div class="def"><span class="term">Serial position effect</span><span class="meaning">Primacy effect (remember beginning of list) + recency effect (remember end). Middle items worst recalled.</span></div>
+      <div class="def"><span class="term">Maintenance rehearsal</span><span class="meaning">Simple repetition; keeps info in short-term memory temporarily.</span></div>
+      <div class="def"><span class="term">Elaborative rehearsal</span><span class="meaning">Connecting new information to existing meaning; promotes long-term retention.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">2.6–2.7 — Retrieval &amp; Forgetting</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Recall vs. recognition</span><span class="meaning">Recall = retrieve without cues (essay). Recognition = identify from options (multiple choice).</span></div>
+      <div class="def"><span class="term">Context-dependent memory</span><span class="meaning">Better recall in the same physical environment as encoding.</span></div>
+      <div class="def"><span class="term">Mood-congruent memory</span><span class="meaning">Better recall when in the same emotional mood as during encoding.</span></div>
+      <div class="def"><span class="term">State-dependent memory</span><span class="meaning">Better recall in the same physiological state as encoding.</span></div>
+      <div class="def"><span class="term">Testing effect</span><span class="meaning">Self-testing improves long-term memory more than re-reading alone.</span></div>
+      <div class="def"><span class="term">Forgetting curve</span><span class="meaning">Rapid forgetting immediately after learning, then leveling off over time (Ebbinghaus).</span></div>
+      <div class="def"><span class="term">Proactive interference</span><span class="meaning">Old information interferes with learning/recalling new information.</span></div>
+      <div class="def"><span class="term">Retroactive interference</span><span class="meaning">New information interferes with recalling old information.</span></div>
+      <div class="def"><span class="term">Tip-of-the-tongue</span><span class="meaning">Knowing you know something but being unable to retrieve it — inadequate retrieval cues.</span></div>
+      <div class="def"><span class="term">Repression</span><span class="meaning">Psychodynamic: unconscious blocking of memories to protect the ego from distress.</span></div>
+      <div class="def"><span class="term">Misinformation effect</span><span class="meaning">Misleading post-event information distorts memory of the original event (Elizabeth Loftus).</span></div>
+      <div class="def"><span class="term">Source amnesia</span><span class="meaning">Remembering information but forgetting where or when you learned it.</span></div>
+      <div class="def"><span class="term">Constructive memory</span><span class="meaning">Memories are reconstructed each time they're recalled, not played back like recordings.</span></div>
+      <div class="def"><span class="term">Retrograde amnesia</span><span class="meaning">Loss of memories formed before brain damage.</span></div>
+      <div class="def"><span class="term">Anterograde amnesia</span><span class="meaning">Inability to form new long-term memories after brain damage (hippocampus).</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Key experiment</div>
+    <div class="exp-card">
+      <div class="exp-name">Misinformation effect — car crash studies</div>
+      <div class="exp-who">Elizabeth Loftus</div>
+      <div class="exp-desc">Participants watched a car accident film then answered questions. Those asked "How fast were the cars going when they smashed?" recalled higher speeds and falsely remembered broken glass compared to those asked with "hit." Demonstrated that memory is reconstructive, not reproductive — and revealed dangers of leading questions in eyewitness testimony.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">2.8 — Intelligence &amp; Achievement</div>
+    <div class="def-list">
+      <div class="def"><span class="term">General intelligence (g)</span><span class="meaning">Spearman's single underlying factor accounting for performance across mental tasks.</span></div>
+      <div class="def"><span class="term">Multiple intelligences</span><span class="meaning">Gardner: 8+ separate intelligences (linguistic, logical-math, spatial, musical, bodily-kinesthetic, interpersonal, intrapersonal, naturalist).</span></div>
+      <div class="def"><span class="term">IQ (historical formula)</span><span class="meaning">Mental age ÷ chronological age × 100. Modern IQ uses standardized scores.</span></div>
+      <div class="def"><span class="term">Standardization</span><span class="meaning">Test administered under consistent procedures with norms from a representative sample.</span></div>
+      <div class="def"><span class="term">Validity</span><span class="meaning">Test measures what it claims to measure. Construct validity + predictive validity.</span></div>
+      <div class="def"><span class="term">Reliability</span><span class="meaning">Test yields consistent results across administrations. Test-retest + split-half reliability.</span></div>
+      <div class="def"><span class="term">Flynn Effect</span><span class="meaning">IQ scores have risen across generations worldwide; attributed to better nutrition, healthcare, and education.</span></div>
+      <div class="def"><span class="term">Stereotype threat</span><span class="meaning">Awareness of a negative stereotype impairs test performance in the stereotyped group.</span></div>
+      <div class="def"><span class="term">Stereotype lift</span><span class="meaning">Awareness of a positive stereotype boosts performance.</span></div>
+      <div class="def"><span class="term">Fixed mindset</span><span class="meaning">Intelligence is innate and cannot change (Carol Dweck).</span></div>
+      <div class="def"><span class="term">Growth mindset</span><span class="meaning">Intelligence can be developed through effort and learning.</span></div>
+      <div class="def"><span class="term">Achievement tests</span><span class="meaning">Measure what someone currently knows.</span></div>
+      <div class="def"><span class="term">Aptitude tests</span><span class="meaning">Predict how someone will perform in the future.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ UNIT 3 ══════════════════════════════ -->
+<div class="unit-panel u3" id="u3">
+  <div class="unit-header-bar">
+    <span class="unit-badge">Unit 3</span>
+    <h2 class="unit-heading">Development and Learning</h2>
+    <span class="unit-pct">15–25% · ~17–23 periods</span>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Topics at a glance</div>
+    <div class="topics-grid">
+      <div class="topic-card"><div class="topic-num">3.1</div><div class="topic-name">Themes &amp; Methods</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.2</div><div class="topic-name">Physical Development</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.3</div><div class="topic-name">Gender &amp; Sexual Orientation</div><div class="topic-periods">1 period</div></div>
+      <div class="topic-card"><div class="topic-num">3.4</div><div class="topic-name">Cognitive Development</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.5</div><div class="topic-name">Language Development</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.6</div><div class="topic-name">Social-Emotional Development</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.7</div><div class="topic-name">Classical Conditioning</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.8</div><div class="topic-name">Operant Conditioning</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">3.9</div><div class="topic-name">Social &amp; Cognitive Learning</div><div class="topic-periods">2 periods</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.1 — Developmental Psychology Themes &amp; Methods</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Cross-sectional research</span><span class="meaning">Compare different age groups at one point in time. Faster but cohort effects can confound results.</span></div>
+      <div class="def"><span class="term">Longitudinal research</span><span class="meaning">Follow the same individuals over time. More accurate but slow, costly, and subject to attrition.</span></div>
+      <div class="def"><span class="term">Stability vs. change</span><span class="meaning">Do personality traits persist, or do people substantially change through life?</span></div>
+      <div class="def"><span class="term">Continuous vs. discontinuous</span><span class="meaning">Does development occur gradually (continuous) or in distinct stages (discontinuous)?</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.2 — Physical Development</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Teratogens</span><span class="meaning">Environmental agents (drugs, alcohol, illness, toxins) that harm prenatal development.</span></div>
+      <div class="def"><span class="term">Rooting reflex</span><span class="meaning">Infant turns toward touch on the cheek — survival reflex for feeding.</span></div>
+      <div class="def"><span class="term">Visual cliff</span><span class="meaning">Apparatus with a glass floor appearing as a drop-off. Even crawling infants avoid it, demonstrating early depth perception.</span></div>
+      <div class="def"><span class="term">Critical/sensitive periods</span><span class="meaning">Windows during development when experience has its greatest impact (e.g., language acquisition).</span></div>
+      <div class="def"><span class="term">Imprinting</span><span class="meaning">Non-human animals attach to the first moving object seen after birth (Lorenz and geese).</span></div>
+      <div class="def"><span class="term">Puberty</span><span class="meaning">Adolescent growth spurt; development of primary sex characteristics (reproductive organs) and secondary (body hair, voice). Menarche (first period), spermarche (first ejaculation).</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.4 — Cognitive Development (Piaget &amp; Vygotsky)</div>
+    <div class="section-label" style="font-size:12px;color:var(--accent);letter-spacing:0;text-transform:none;margin-bottom:.5rem">Piaget's 4 stages</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Sensorimotor (0–2 yrs)</span><span class="v">Learn via senses and action. Object permanence develops (objects exist when out of sight).</span></div>
+      <div class="kv"><span class="k">Preoperational (2–7 yrs)</span><span class="v">Language/symbols emerge; pretend play; egocentrism; animism. Lacks conservation, reversibility. Theory of mind begins to develop.</span></div>
+      <div class="kv"><span class="k">Concrete operational (7–11)</span><span class="v">Logical thinking about concrete objects; can conserve. Still struggles with abstract/hypothetical thinking.</span></div>
+      <div class="kv"><span class="k">Formal operational (12+)</span><span class="v">Abstract and hypothetical reasoning. Not all individuals fully reach this stage, per Piaget.</span></div>
+    </div>
+    <div class="def-list" style="margin-top:1rem">
+      <div class="def"><span class="term">Vygotsky</span><span class="meaning">Children are social learners. Zone of proximal development (ZPD) = tasks doable with help but not alone. Scaffolding = support provided by a more knowledgeable other.</span></div>
+      <div class="def"><span class="term">Crystallized intelligence</span><span class="meaning">Accumulated knowledge and vocabulary; stable through adulthood and into old age.</span></div>
+      <div class="def"><span class="term">Fluid intelligence</span><span class="meaning">Ability to reason quickly with novel problems; tends to decline with age.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.5 — Language Development</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Language features</span><span class="meaning">Shared arbitrary symbols; governed by phonemes, morphemes, semantics, grammar, and syntax; generative (infinite novel sentences possible).</span></div>
+      <div class="def"><span class="term">Developmental stages</span><span class="meaning">Cooing → babbling → one-word (holophrastic) stage → telegraphic speech ("want milk") → full sentences.</span></div>
+      <div class="def"><span class="term">Overgeneralization</span><span class="meaning">Applying grammar rules too broadly — e.g., "I goed to the store" — shows rule learning, not rote memorization.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.6 — Social-Emotional Development</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Ecological systems (Bronfenbrenner)</span><span class="meaning">Microsystem → mesosystem → exosystem → macrosystem → chronosystem. Each layer influences development.</span></div>
+      <div class="def"><span class="term">Parenting styles</span><span class="meaning">Authoritarian (strict, low warmth), authoritative (firm + warm = best outcomes), permissive (warm, low structure).</span></div>
+      <div class="def"><span class="term">Attachment types</span><span class="meaning">Secure; insecure-avoidant; insecure-anxious; disorganized. Influenced by temperament and caregiver responsiveness.</span></div>
+      <div class="def"><span class="term">Separation anxiety</span><span class="meaning">Heightened fear or distress when separated from a primary caregiver; peaks around 8–12 months.</span></div>
+      <div class="def"><span class="term">Adolescent egocentrism</span><span class="meaning">Imaginary audience (feeling constantly watched/judged) + personal fable (feeling unique and invincible).</span></div>
+      <div class="def"><span class="term">Social clock</span><span class="meaning">Culturally defined timeline for expected life events (marriage, career, children); varies across cultures.</span></div>
+      <div class="def"><span class="term">ACEs</span><span class="meaning">Adverse childhood experiences have lasting effects on attachment and relationships throughout life.</span></div>
+      <div class="def"><span class="term">Identity development (Marcia)</span><span class="meaning">Achievement (explored + committed), diffusion (neither), foreclosure (committed without exploring), moratorium (exploring, not yet committed).</span></div>
+    </div>
+    <div class="exp-card" style="margin-top:1rem">
+      <div class="exp-name">Harlow's contact comfort experiments</div>
+      <div class="exp-who">Harry Harlow</div>
+      <div class="exp-desc">Infant rhesus monkeys chose a cloth "mother" over a wire "mother" that provided milk — proving that comfort and contact matter more than food in attachment. Contradicted the behaviorist view that feeding creates attachment, and established that social bonds serve emotional needs.</div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Erikson's 8 psychosocial stages</div>
+    <table class="stage-table">
+      <tr><td>Trust vs. mistrust</td><td>Infancy</td></tr>
+      <tr><td>Autonomy vs. shame &amp; doubt</td><td>Toddlerhood</td></tr>
+      <tr><td>Initiative vs. guilt</td><td>Early childhood</td></tr>
+      <tr><td>Industry vs. inferiority</td><td>Middle childhood</td></tr>
+      <tr><td>Identity vs. role confusion</td><td>Adolescence</td></tr>
+      <tr><td>Intimacy vs. isolation</td><td>Young adulthood</td></tr>
+      <tr><td>Generativity vs. stagnation</td><td>Middle adulthood</td></tr>
+      <tr><td>Integrity vs. despair</td><td>Late adulthood</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.7 — Classical Conditioning</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Definition</span><span class="meaning">Learning by associating one stimulus with another to elicit a response. Pavlov's foundational dogs experiment.</span></div>
+      <div class="def"><span class="term">UCS</span><span class="meaning">Unconditioned stimulus — naturally and automatically triggers a response (food).</span></div>
+      <div class="def"><span class="term">UCR</span><span class="meaning">Unconditioned response — natural, unlearned reaction (salivation to food).</span></div>
+      <div class="def"><span class="term">CS</span><span class="meaning">Conditioned stimulus — previously neutral; now triggers response after pairing (bell).</span></div>
+      <div class="def"><span class="term">CR</span><span class="meaning">Conditioned response — learned response to the CS (salivation to bell alone).</span></div>
+      <div class="def"><span class="term">Acquisition</span><span class="meaning">Learning the CS-UCS association. CS must consistently precede the UCS.</span></div>
+      <div class="def"><span class="term">Extinction</span><span class="meaning">CS presented without UCS repeatedly → CR weakens and disappears.</span></div>
+      <div class="def"><span class="term">Spontaneous recovery</span><span class="meaning">An extinguished CR reappears after a rest period when CS is presented again.</span></div>
+      <div class="def"><span class="term">Stimulus generalization</span><span class="meaning">Responding to stimuli similar to the original CS.</span></div>
+      <div class="def"><span class="term">Stimulus discrimination</span><span class="meaning">Responding only to the specific CS and not to similar stimuli.</span></div>
+      <div class="def"><span class="term">Higher-order conditioning</span><span class="meaning">An established CS is used as a UCS to condition a new CS.</span></div>
+      <div class="def"><span class="term">Counterconditioning</span><span class="meaning">Replacing a conditioned fear response with a relaxation response. Basis of exposure therapy.</span></div>
+      <div class="def"><span class="term">Taste aversion</span><span class="meaning">One-trial learning of food-illness association; demonstrates biological preparedness — species are wired to learn certain pairings faster.</span></div>
+      <div class="def"><span class="term">Habituation</span><span class="meaning">Diminished response to a repeated, unchanging stimulus (not technically conditioning, but related).</span></div>
+    </div>
+    <div class="exp-card" style="margin-top:1rem">
+      <div class="exp-name">Little Albert experiment</div>
+      <div class="exp-who">John B. Watson &amp; Rosalie Rayner (1920)</div>
+      <div class="exp-desc">Conditioned 9-month-old "Albert" to fear a white rat by pairing it with a loud, startling noise (UCS). Fear generalized to other white furry objects. Demonstrated classical conditioning of emotional responses. Considered deeply unethical by modern standards — no extinction trials were conducted, leaving the child conditioned to fear.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.8 — Operant Conditioning</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Law of Effect (Thorndike)</span><span class="meaning">Behaviors followed by satisfying consequences are more likely to be repeated; those followed by discomfort are less likely.</span></div>
+      <div class="def"><span class="term">Positive reinforcement</span><span class="meaning">Add something pleasant → increases behavior (praise after good work).</span></div>
+      <div class="def"><span class="term">Negative reinforcement</span><span class="meaning">Remove something unpleasant → increases behavior (taking aspirin to stop a headache). NOT punishment.</span></div>
+      <div class="def"><span class="term">Positive punishment</span><span class="meaning">Add something unpleasant → decreases behavior (speeding ticket).</span></div>
+      <div class="def"><span class="term">Negative punishment</span><span class="meaning">Remove something pleasant → decreases behavior (grounding = removing phone/freedom).</span></div>
+      <div class="def"><span class="term">Primary reinforcers</span><span class="meaning">Naturally rewarding (food, water, sex).</span></div>
+      <div class="def"><span class="term">Secondary reinforcers</span><span class="meaning">Learned value (money, grades, praise).</span></div>
+      <div class="def"><span class="term">Shaping</span><span class="meaning">Reinforcing successive approximations of a target behavior until the full behavior is achieved.</span></div>
+      <div class="def"><span class="term">Instinctive drift</span><span class="meaning">Conditioned behavior eventually reverts toward instinctual behavior patterns (Brelands).</span></div>
+      <div class="def"><span class="term">Learned helplessness</span><span class="meaning">After repeated uncontrollable aversive events, an organism stops trying even when control becomes possible (Seligman).</span></div>
+      <div class="def"><span class="term">Superstitious behavior</span><span class="meaning">Accidental reinforcement of an unrelated behavior (wearing a "lucky" shirt that happened to precede success).</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Reinforcement schedules</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Continuous</span><span class="v">Reinforce every correct response. Fastest acquisition, fastest extinction when stopped.</span></div>
+      <div class="kv"><span class="k">Fixed-ratio (FR)</span><span class="v">After a set number of responses. High steady rate; brief pause after reward (piecework pay).</span></div>
+      <div class="kv"><span class="k">Variable-ratio (VR)</span><span class="v">After unpredictable number of responses. Highest and most persistent rate; most resistant to extinction (slot machines, gambling).</span></div>
+      <div class="kv"><span class="k">Fixed-interval (FI)</span><span class="v">After a set time period. Scalloped pattern — response rate increases as reward time approaches (weekly paychecks).</span></div>
+      <div class="kv"><span class="k">Variable-interval (VI)</span><span class="v">After unpredictable time periods. Steady, persistent response rate (checking email, social media).</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">3.9 — Social, Cognitive &amp; Neurological Learning</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Social learning theory (Bandura)</span><span class="meaning">Learning occurs through observation; vicarious conditioning — you don't need personal experience with consequences.</span></div>
+      <div class="def"><span class="term">Insight learning (Köhler)</span><span class="meaning">Sudden "aha" solution without prior trial-and-error. Köhler's chimps stacked boxes to reach bananas.</span></div>
+      <div class="def"><span class="term">Latent learning (Tolman)</span><span class="meaning">Learning that occurs without reinforcement but is demonstrated later when motivation exists. Shown through cognitive maps (mental spatial layouts).</span></div>
+    </div>
+    <div class="exp-card" style="margin-top:1rem">
+      <div class="exp-name">Bobo doll experiment</div>
+      <div class="exp-who">Albert Bandura (1961)</div>
+      <div class="exp-desc">Children who observed an adult aggressively hit an inflatable "Bobo" doll later imitated those exact behaviors — without any direct reinforcement themselves. Established observational/social learning theory: behavior can be learned vicariously through watching models, especially similar ones. Challenged strict behaviorism.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ UNIT 4 ══════════════════════════════ -->
+<div class="unit-panel u4" id="u4">
+  <div class="unit-header-bar">
+    <span class="unit-badge">Unit 4</span>
+    <h2 class="unit-heading">Social Psychology and Personality</h2>
+    <span class="unit-pct">15–25% · ~17–23 periods</span>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Topics at a glance</div>
+    <div class="topics-grid">
+      <div class="topic-card"><div class="topic-num">4.1</div><div class="topic-name">Attribution Theory</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">4.2</div><div class="topic-name">Attitude Formation &amp; Change</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">4.3</div><div class="topic-name">Psychology of Social Situations</div><div class="topic-periods">4 periods</div></div>
+      <div class="topic-card"><div class="topic-num">4.4</div><div class="topic-name">Psychodynamic &amp; Humanistic</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">4.5</div><div class="topic-name">Social-Cognitive &amp; Trait Theories</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">4.6</div><div class="topic-name">Motivation</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">4.7</div><div class="topic-name">Emotion</div><div class="topic-periods">3 periods</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.1 — Attribution Theory &amp; Person Perception</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Dispositional attribution</span><span class="meaning">Explaining behavior by internal qualities — personality, character, intelligence.</span></div>
+      <div class="def"><span class="term">Situational attribution</span><span class="meaning">Explaining behavior by external circumstances and context.</span></div>
+      <div class="def"><span class="term">Fundamental attribution error</span><span class="meaning">Overestimating dispositional factors and underestimating situational factors when explaining others' behavior. Very common in Western cultures.</span></div>
+      <div class="def"><span class="term">Actor/observer bias</span><span class="meaning">We explain our own behavior situationally but explain others' behavior dispositionally.</span></div>
+      <div class="def"><span class="term">Self-serving bias</span><span class="meaning">Attribute successes to self (disposition) but failures to situation.</span></div>
+      <div class="def"><span class="term">Explanatory style</span><span class="meaning">Optimistic (events are temporary, specific, external) vs. pessimistic (permanent, global, internal).</span></div>
+      <div class="def"><span class="term">Locus of control</span><span class="meaning">Internal (I control my outcomes) vs. external (fate/luck/others control outcomes — Rotter).</span></div>
+      <div class="def"><span class="term">Mere exposure effect</span><span class="meaning">Repeated exposure to a stimulus increases liking of it.</span></div>
+      <div class="def"><span class="term">Self-fulfilling prophecy</span><span class="meaning">Expectations cause behaviors that confirm those very expectations (e.g., Pygmalion effect).</span></div>
+      <div class="def"><span class="term">Social comparison</span><span class="meaning">We evaluate ourselves by comparing to others. Upward comparison (to those better off) or downward (to those worse off).</span></div>
+      <div class="def"><span class="term">Relative deprivation</span><span class="meaning">Feeling deprived relative to others, even when objectively you may have enough.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.2 — Attitude Formation &amp; Change</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Stereotype</span><span class="meaning">A generalized belief about a group. Reduces cognitive load but produces biased judgments and prejudice.</span></div>
+      <div class="def"><span class="term">Implicit attitudes</span><span class="meaning">Attitudes held unconsciously; measured by IAT. Can conflict with explicit (stated) attitudes.</span></div>
+      <div class="def"><span class="term">Just-world phenomenon</span><span class="meaning">Belief that people get what they deserve; tends to blame victims for their misfortune.</span></div>
+      <div class="def"><span class="term">In-group bias</span><span class="meaning">Tendency to favor members of one's own group over outsiders.</span></div>
+      <div class="def"><span class="term">Out-group homogeneity bias</span><span class="meaning">Perceiving out-group members as all the same while viewing the in-group as diverse.</span></div>
+      <div class="def"><span class="term">Ethnocentrism</span><span class="meaning">Judging other cultures by the standards and values of one's own culture.</span></div>
+      <div class="def"><span class="term">Belief perseverance</span><span class="meaning">Clinging to a belief even when evidence contradicts it; maintained through confirmation bias.</span></div>
+      <div class="def"><span class="term">Cognitive dissonance (Festinger)</span><span class="meaning">Mental discomfort from conflict between actions and attitudes; motivates change in one of them to restore consistency.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.3 — Psychology of Social Situations</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Normative social influence</span><span class="meaning">Conform to be liked or accepted by the group.</span></div>
+      <div class="def"><span class="term">Informational social influence</span><span class="meaning">Conform because others seem to have better information about the correct answer.</span></div>
+      <div class="def"><span class="term">Conformity (Asch)</span><span class="meaning">Adjusting behavior or judgment to match the group norm, even against one's own perception.</span></div>
+      <div class="def"><span class="term">Obedience (Milgram)</span><span class="meaning">Compliance with authority figure commands. 65% delivered maximum shocks in original study. Situational factors dominate.</span></div>
+      <div class="def"><span class="term">Elaboration likelihood model</span><span class="meaning">Central route (thoughtful analysis of facts) vs. peripheral route (superficial cues like attractiveness or reputation).</span></div>
+      <div class="def"><span class="term">Foot-in-the-door</span><span class="meaning">Agree to a small request first → more likely to comply with larger request later.</span></div>
+      <div class="def"><span class="term">Door-in-the-face</span><span class="meaning">Make a huge request first (which is refused) → then make the smaller real request (which is granted).</span></div>
+      <div class="def"><span class="term">Halo effect</span><span class="meaning">A positive overall impression based on one trait (e.g., attractiveness) influences judgments of unrelated traits.</span></div>
+      <div class="def"><span class="term">Group polarization</span><span class="meaning">Group discussion intensifies the group's initial leaning — moderate views become more extreme.</span></div>
+      <div class="def"><span class="term">Groupthink</span><span class="meaning">Desire for harmony suppresses dissent; leads to poor collective decision-making.</span></div>
+      <div class="def"><span class="term">Diffusion of responsibility</span><span class="meaning">Each individual feels less personal responsibility when more people are present.</span></div>
+      <div class="def"><span class="term">Bystander effect</span><span class="meaning">As group size increases, probability of any individual helping decreases (Kitty Genovese case, Darley &amp; Latané).</span></div>
+      <div class="def"><span class="term">Social loafing</span><span class="meaning">Individual effort decreases when working in a group — harder to identify individual contributions.</span></div>
+      <div class="def"><span class="term">Deindividuation</span><span class="meaning">Loss of self-awareness and restraint in group situations; leads to impulsive or antisocial behavior.</span></div>
+      <div class="def"><span class="term">Social facilitation</span><span class="meaning">Presence of others improves performance on simple or well-practiced tasks; impairs performance on complex/new tasks.</span></div>
+      <div class="def"><span class="term">False consensus effect</span><span class="meaning">Overestimating the extent to which others share our beliefs and behaviors.</span></div>
+      <div class="def"><span class="term">Superordinate goals</span><span class="meaning">Shared goals requiring intergroup cooperation; reduce conflict and stereotyping (Robbers Cave study).</span></div>
+      <div class="def"><span class="term">Altruism</span><span class="meaning">Selfless helping. Social reciprocity norm (help others to receive help) and social responsibility norm explain prosocial behavior.</span></div>
+      <div class="def"><span class="term">I/O psychology</span><span class="meaning">Industrial-organizational: applies psychology to workplace productivity, management, relationships, and burnout.</span></div>
+    </div>
+    <div class="exp-card" style="margin-top:1rem">
+      <div class="exp-name">Milgram obedience study</div>
+      <div class="exp-who">Stanley Milgram (1963)</div>
+      <div class="exp-desc">Participants believed they were administering electric shocks to a "learner" (confederate) for wrong answers. 65% continued to the maximum 450V level when an authority figure instructed them to. Demonstrated the extraordinary situational power of authority over individual moral judgment. Major ethical concerns: deception, psychological distress, unclear right to withdraw.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-name">Asch conformity study</div>
+      <div class="exp-who">Solomon Asch (1951)</div>
+      <div class="exp-desc">Participants matched line lengths. When 7 confederates unanimously gave the wrong answer, ~75% of real participants conformed at least once — even though the correct answer was obvious. Conformity increased with group size and was sharply reduced if even one confederate agreed with the participant. Demonstrated normative social influence.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-name">Stanford Prison Experiment</div>
+      <div class="exp-who">Philip Zimbardo (1971)</div>
+      <div class="exp-desc">Students randomly assigned as "guards" or "prisoners." Guards became abusive; prisoners became passive and distressed. Experiment terminated after 6 days. Showed how social roles and deindividuation lead to extreme behavior. Widely criticized for ethical violations: lack of clear consent, failure to stop harm, and later critiques questioned methodology and data reliability.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.4 — Psychodynamic &amp; Humanistic Personality</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Psychodynamic theory (Freud)</span><span class="meaning">Unconscious drives shape personality. Id (pleasure principle), ego (reality principle), superego (moral principle).</span></div>
+      <div class="def"><span class="term">Defense mechanisms</span><span class="meaning">Denial, displacement (redirecting emotion), projection (attributing to others), rationalization, reaction formation (opposite), regression, repression (blocking), sublimation (channeling into socially acceptable acts).</span></div>
+      <div class="def"><span class="term">Projective tests</span><span class="meaning">Ambiguous stimuli designed to reveal unconscious thoughts — Rorschach inkblot test, Thematic Apperception Test (TAT).</span></div>
+      <div class="def"><span class="term">Humanistic theory (Rogers)</span><span class="meaning">People have a self-actualizing tendency. Unconditional positive regard — being valued without conditions — fosters healthy personality development.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.5 — Social-Cognitive &amp; Trait Theories</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Reciprocal determinism (Bandura)</span><span class="meaning">Behavior, cognition (thoughts/beliefs), and environment mutually influence each other in a continuous loop.</span></div>
+      <div class="def"><span class="term">Self-efficacy</span><span class="meaning">Belief in one's own ability to successfully perform specific tasks. Strongly predicts behavior and achievement.</span></div>
+      <div class="def"><span class="term">Self-esteem</span><span class="meaning">Overall global sense of self-worth.</span></div>
+      <div class="def"><span class="term">Big Five (OCEAN)</span><span class="meaning">Openness to experience, Conscientiousness, Extraversion, Agreeableness, Neuroticism (emotional stability). Measured by personality inventories using factor analysis.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.6 — Motivation</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Drive-reduction theory</span><span class="meaning">Biological needs create drives; motivated behavior reduces those drives and restores homeostasis.</span></div>
+      <div class="def"><span class="term">Arousal theory + Yerkes-Dodson</span><span class="meaning">People seek optimal arousal. Performance peaks at moderate arousal (inverted U curve); too little or too much impairs performance.</span></div>
+      <div class="def"><span class="term">Intrinsic motivation</span><span class="meaning">Driven by internal interest, enjoyment, or personal satisfaction.</span></div>
+      <div class="def"><span class="term">Extrinsic motivation</span><span class="meaning">Driven by external rewards (money, grades, praise). Overjustification effect: excessive external reward can undermine intrinsic motivation.</span></div>
+      <div class="def"><span class="term">Lewin's motivational conflicts</span><span class="meaning">Approach-approach (two good options), approach-avoidance (one option has pros and cons), avoidance-avoidance (two bad options).</span></div>
+      <div class="def"><span class="term">Sensation-seeking theory</span><span class="meaning">Need for novel/varied experiences as motivation. Types: thrill-seeking, experience-seeking, disinhibition, boredom susceptibility.</span></div>
+      <div class="def"><span class="term">Hunger regulation</span><span class="meaning">Ghrelin (hunger signal) and leptin (satiety signal), both regulated by hypothalamus via pituitary gland. External cues (food presence, time) also influence eating.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">4.7 — Emotion</div>
+    <div class="def-list">
+      <div class="def"><span class="term">James-Lange theory</span><span class="meaning">Physiological arousal occurs first → then we label it as an emotion. "We are afraid because we run."</span></div>
+      <div class="def"><span class="term">Cannon-Bard theory</span><span class="meaning">Physiological arousal and emotional experience occur simultaneously and independently.</span></div>
+      <div class="def"><span class="term">Two-factor theory (Schachter-Singer)</span><span class="meaning">Arousal + cognitive label = emotion. The same arousal can become different emotions depending on how it's labeled.</span></div>
+      <div class="def"><span class="term">Facial-feedback hypothesis</span><span class="meaning">Facial expressions can influence emotional experience — smiling may increase positive feelings. Research results are mixed.</span></div>
+      <div class="def"><span class="term">Broaden-and-build theory</span><span class="meaning">Positive emotions broaden awareness and build psychological resources. Negative emotions narrow thinking and action options.</span></div>
+      <div class="def"><span class="term">Universal emotions (Ekman)</span><span class="meaning">Anger, disgust, sadness, happiness, surprise, and fear may be cross-culturally consistent. Display rules vary by culture and gender.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ UNIT 5 ══════════════════════════════ -->
+<div class="unit-panel u5" id="u5">
+  <div class="unit-header-bar">
+    <span class="unit-badge">Unit 5</span>
+    <h2 class="unit-heading">Mental and Physical Health</h2>
+    <span class="unit-pct">15–25% · ~17–23 periods</span>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Topics at a glance</div>
+    <div class="topics-grid">
+      <div class="topic-card"><div class="topic-num">5.1</div><div class="topic-name">Health Psychology</div><div class="topic-periods">3 periods</div></div>
+      <div class="topic-card"><div class="topic-num">5.2</div><div class="topic-name">Positive Psychology</div><div class="topic-periods">2 periods</div></div>
+      <div class="topic-card"><div class="topic-num">5.3</div><div class="topic-name">Explaining &amp; Classifying Disorders</div><div class="topic-periods">5 periods</div></div>
+      <div class="topic-card"><div class="topic-num">5.4</div><div class="topic-name">Categories of Disorders</div><div class="topic-periods">5 periods</div></div>
+      <div class="topic-card"><div class="topic-num">5.5</div><div class="topic-name">Treatment of Disorders</div><div class="topic-periods">5 periods</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">5.1 — Health Psychology &amp; Stress</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Eustress</span><span class="meaning">Motivating, positive stress that enhances performance and well-being.</span></div>
+      <div class="def"><span class="term">Distress</span><span class="meaning">Debilitating stress that harms health. Linked to hypertension, headaches, and immune suppression.</span></div>
+      <div class="def"><span class="term">General Adaptation Syndrome (Selye)</span><span class="meaning">Alarm stage (fight-flight-freeze response) → Resistance stage (confronting and coping) → Exhaustion stage (resources depleted; most vulnerable to illness here).</span></div>
+      <div class="def"><span class="term">Tend-and-befriend theory</span><span class="meaning">Some people respond to stress by tending to their own needs and/or seeking social connection. More commonly observed in women.</span></div>
+      <div class="def"><span class="term">Problem-focused coping</span><span class="meaning">Address the stressor directly by working to change or solve the problem.</span></div>
+      <div class="def"><span class="term">Emotion-focused coping</span><span class="meaning">Manage the emotional reaction to stress through meditation, deep breathing, or medication.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">5.2 — Positive Psychology</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Positive psychology</span><span class="meaning">Scientific study of factors that promote well-being, resilience, and flourishing — not just the absence of disorder.</span></div>
+      <div class="def"><span class="term">Gratitude</span><span class="meaning">Practicing gratitude increases subjective well-being and life satisfaction.</span></div>
+      <div class="def"><span class="term">Signature strengths</span><span class="meaning">Using one's character strengths linked to higher happiness. Six virtue categories: wisdom, courage, humanity, justice, temperance, transcendence.</span></div>
+      <div class="def"><span class="term">Posttraumatic growth</span><span class="meaning">Positive psychological change — including improved relationships, new possibilities, and stronger sense of meaning — that can follow trauma.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">5.3 — Explaining &amp; Classifying Disorders</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Criteria for disorder</span><span class="meaning">Dysfunction (impairs daily functioning) + distress (causes personal suffering) + deviation from social norms.</span></div>
+      <div class="def"><span class="term">DSM</span><span class="meaning">Diagnostic and Statistical Manual of Mental Disorders (APA). Standard diagnostic tool in the US; updated regularly.</span></div>
+      <div class="def"><span class="term">ICD</span><span class="meaning">International Classification of Diseases (WHO). Global equivalent; used internationally.</span></div>
+      <div class="def"><span class="term">Biopsychosocial model</span><span class="meaning">Psychological disorders arise from a combination of biological, psychological, and sociocultural factors.</span></div>
+      <div class="def"><span class="term">Diathesis-stress model</span><span class="meaning">Genetic vulnerability (diathesis) + stressful life events (stress) = disorder. Neither alone is sufficient.</span></div>
+      <div class="def"><span class="term">Eclectic approach</span><span class="meaning">Most clinicians draw on multiple theoretical perspectives when explaining and treating disorders.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Theoretical perspectives on causes</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Behavioral</span><span class="v">Maladaptive learned associations between stimuli and responses.</span></div>
+      <div class="kv"><span class="k">Psychodynamic</span><span class="v">Unconscious conflicts and unresolved childhood experiences.</span></div>
+      <div class="kv"><span class="k">Humanistic</span><span class="v">Lack of social support; inability to self-actualize or meet one's potential.</span></div>
+      <div class="kv"><span class="k">Cognitive</span><span class="v">Maladaptive thoughts, beliefs, and attitudes distort perception and behavior.</span></div>
+      <div class="kv"><span class="k">Evolutionary</span><span class="v">Behaviors/processes that reduce survival or reproductive likelihood.</span></div>
+      <div class="kv"><span class="k">Sociocultural</span><span class="v">Maladaptive social and cultural dynamics, stigma, discrimination.</span></div>
+      <div class="kv"><span class="k">Biological</span><span class="v">Physiological dysfunction, genetic predisposition, or neurochemical imbalances.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">5.4 — Psychological Disorders (testable categories only)</div>
+    <div class="disorder-grid">
+      <div class="disorder-card">
+        <div class="disorder-name">Neurodevelopmental</div>
+        <div class="disorder-desc">ADHD and Autism Spectrum Disorder (ASD). Onset during development; behaviors inappropriate for age/maturity. Causes: environmental, physiological, or genetic.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Schizophrenic spectrum</div>
+        <div class="disorder-desc">Positive symptoms: delusions (false beliefs — persecution, grandeur), hallucinations (false perceptions), disorganized speech (word salad), catatonic excitement. Negative symptoms: flat affect, catatonic stupor. Dopamine hypothesis; genetic + prenatal viral exposure.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Depressive disorders</div>
+        <div class="disorder-desc">Major depressive disorder (MDD) and persistent depressive disorder. Persistent sad/empty mood + cognitive/physical changes impairing function. Biological, genetic, social, cultural, behavioral, and cognitive causes.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Bipolar disorders</div>
+        <div class="disorder-desc">Bipolar I: full manic episodes + depression. Bipolar II: hypomania + depression. Cycling between states. Biological and genetic causes; treated with lithium.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Anxiety disorders</div>
+        <div class="disorder-desc">Specific phobia; agoraphobia; panic disorder (ataque de nervios = culture-bound variant); social anxiety disorder (taijin kyofusho = Japanese culture-bound variant); generalized anxiety disorder (GAD — nonspecific chronic worry).</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">OCD &amp; related</div>
+        <div class="disorder-desc">OCD: obsessions (intrusive thoughts) + compulsions (repetitive behaviors intended to reduce obsession distress). Hoarding disorder. Learned associations, maladaptive thinking, biological/genetic causes.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Dissociative disorders</div>
+        <div class="disorder-desc">Dissociative amnesia (with or without fugue) and dissociative identity disorder (DID). Dissociation from consciousness, memory, or identity. Causes: trauma and severe stress.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Trauma &amp; stressor-related</div>
+        <div class="disorder-desc">PTSD: hypervigilance, flashbacks, insomnia, emotional detachment, hostility following a traumatic event. Cause: trauma/extreme stress exposure.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Eating disorders</div>
+        <div class="disorder-desc">Anorexia nervosa (severe restriction of food) and bulimia nervosa (binge-purge cycles). Biological, genetic, social, cultural, cognitive causes.</div>
+      </div>
+      <div class="disorder-card">
+        <div class="disorder-name">Personality disorders</div>
+        <div class="disorder-desc">Cluster A (odd/eccentric): paranoid, schizoid, schizotypal. Cluster B (dramatic/erratic): antisocial, histrionic, narcissistic, borderline. Cluster C (anxious/fearful): avoidant, dependent, OC personality disorder.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">5.5 — Treatment of Psychological Disorders</div>
+    <div class="def-list">
+      <div class="def"><span class="term">Evidence-based practice</span><span class="meaning">Treatments supported by meta-analytic research. Psychotherapies are generally effective; therapists should use best available evidence.</span></div>
+      <div class="def"><span class="term">Therapeutic alliance</span><span class="meaning">The working relationship between therapist and client; one of the strongest predictors of therapy success.</span></div>
+      <div class="def"><span class="term">Cultural humility</span><span class="meaning">Therapist's ongoing, self-reflective awareness of their own biases and their client's cultural background.</span></div>
+      <div class="def"><span class="term">Deinstitutionalization</span><span class="meaning">Shift from hospitals and asylums to outpatient/community-based treatment; driven by development of psychotropic medications.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Psychotherapy approaches</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Psychodynamic therapy</span><span class="v">Free association and dream interpretation to uncover unconscious conflicts.</span></div>
+      <div class="kv"><span class="k">Cognitive therapy</span><span class="v">Cognitive restructuring; targets the cognitive triad (negative thoughts about self, world, future — Beck).</span></div>
+      <div class="kv"><span class="k">Behavior therapy / ABA</span><span class="v">Exposure therapy, systematic desensitization (graduated fear exposure + relaxation), aversion therapy, token economies, biofeedback.</span></div>
+      <div class="kv"><span class="k">CBT</span><span class="v">Combines cognitive + behavioral approaches. Includes dialectical behavior therapy (DBT) and rational-emotive behavior therapy (REBT).</span></div>
+      <div class="kv"><span class="k">Person-centered therapy</span><span class="v">Humanistic; active listening and unconditional positive regard (Rogers).</span></div>
+      <div class="kv"><span class="k">Group therapy</span><span class="v">Shared experience; social support; cost-effective vs. individual therapy.</span></div>
+      <div class="kv"><span class="k">Hypnosis</span><span class="v">Effective for pain management and anxiety. NOT supported for accurate memory retrieval or age regression.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Biomedical treatments</div>
+    <div class="kv-list">
+      <div class="kv"><span class="k">Antidepressants</span><span class="v">Target serotonin/norepinephrine (SSRIs, SNRIs). Used for depression, anxiety, OCD.</span></div>
+      <div class="kv"><span class="k">Antianxiety drugs</span><span class="v">Benzodiazepines target GABA; reduce anxiety quickly but risk dependence.</span></div>
+      <div class="kv"><span class="k">Lithium</span><span class="v">Mood stabilizer for bipolar disorder; requires regular blood monitoring.</span></div>
+      <div class="kv"><span class="k">Antipsychotics</span><span class="v">Target dopamine for schizophrenia. Side effect: tardive dyskinesia (involuntary movement disorder).</span></div>
+      <div class="kv"><span class="k">ECT</span><span class="v">Electroconvulsive therapy; effective for severe, treatment-resistant depression.</span></div>
+      <div class="kv"><span class="k">TMS</span><span class="v">Transcranial magnetic stimulation; non-invasive brain stimulation for depression.</span></div>
+      <div class="kv"><span class="k">Lobotomy</span><span class="v">Historical prefrontal psychosurgery; rarely if ever performed today.</span></div>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">APA ethical principles for clinicians</div>
+    <div class="pill-list">
+      <span class="pill">Nonmaleficence — do no harm</span>
+      <span class="pill">Fidelity — keep commitments</span>
+      <span class="pill">Integrity — honest practice</span>
+      <span class="pill">Respect for rights and dignity</span>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  AP Psychology · Course and Exam Description · Effective Fall 2025 · College Board
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.unit-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.unit-nav').offsetTop - 1, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
